@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
     private StringCalculator testObj;
@@ -20,7 +21,9 @@ public class StringCalculatorTest {
 
     @Test //String with multiple spaces
     public void testNegativeNumber() {
-        assertEquals(3, testObj.add("-2,5"));
+        assertThrows(IllegalArgumentException.class, () ->{
+            testObj.add("-8,9");
+        });
     }
 
     @Test //String with Digits and Special Characters
